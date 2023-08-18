@@ -129,6 +129,13 @@ for (var i = 0; i < maxConfettis; i++) {
 canvas.width = W;
 canvas.height = H;
 Draw();
+
+if(bestsc.innerHTML===String(0)){
+  localStorage.setItem("top",JSON.stringify(count));
+}else if(bestsc.innerHTML!==String(0) && Number(bestsc.innerHTML)>Number(sc.innerHTML)){
+  localStorage.setItem("top",JSON.stringify(count));
+}
+// console.log(bestsc.innerHTML===String(0));
  }else if(b<c){
     message.innerHTML="Suspected number is lesser,Try again.";
  input.value=null; 
@@ -143,7 +150,7 @@ Draw();
 count++;
 sc.innerHTML=count;
 });
-
+bestsc.innerHTML=JSON.parse(localStorage.getItem("top"));
 
 
 
