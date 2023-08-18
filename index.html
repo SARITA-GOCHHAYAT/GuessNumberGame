@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="totalbody">
+    <marquee behavior="scroll" direction="left-right" scrollamount="10"><h1>Let's Guess The Suspected Number</h1></marquee>
+      <table>
+        <tr>
+          <td>
+            <div id="container"><p id="random"></p></div>
+            <p>Guess the number between 0 to 100</p>
+          </td>
+          <td id="leaddiv" rowspan="2"><p id="leadhead">Leader board</p>
+            <!-- <p id="bestscore">Best Score:-</p>
+            <span id="bestscorenum">0</span> -->
+            <p id="currentscore">Guess Times:-</p>
+            <span id="currentscorenum">0</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p id="mes">Message:-<span id="messagep">
+            </span></p>
+            <input type="text" id="num"><button id="ting">Enter</button>
+            <a href="./index.html">Play Again</a>
+          </td>
+          </tr>
+      </table>
+    </div>
+    <canvas id="canvas"></canvas>
+</body>
+</html>
+<script src="index.js"></script>
