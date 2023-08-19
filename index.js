@@ -8,20 +8,21 @@ let bestsc=document.getElementById("bestscorenum");
 let sc=document.getElementById("currentscorenum");
 let b=Number(random.innerHTML);
 let count=0;
+let z=1;
+// let tik=localStorage.getItem("top");
 let link=document.querySelector("a");
 let button=document.getElementById("ting");
-// let highscore=localStorage.getItem("top");
-// if(highscore == null){
-//   let temp=0;
-//   localStorage.setItem("top",JSON.stringify(temp));
-// }else{
-//   temp=JSON.parse(localStorage.getItem(top));
-//   bestsc.innerHTML=sc.innerHTML;
-// }
 button.addEventListener("click",function(){
     let c=input.value;
     if(c>0 && c<100){
  if(b==c){
+  if(localStorage.getItem("top")==null){
+    localStorage.setItem("top",JSON.stringify(z));
+  }else if(bestsc.innerHTML!==String(0) && Number(bestsc.innerHTML)>Number(sc.innerHTML)){;
+    localStorage.setItem("top",JSON.stringify(z));
+  }
+    bestsc.innerHTML=localStorage.getItem("top");
+  
     random.style.color="green";
     message.style.color="aqua";
     message.innerHTML="You Won";
@@ -130,12 +131,6 @@ canvas.width = W;
 canvas.height = H;
 Draw();
 
-if(bestsc.innerHTML===String(0)){
-  localStorage.setItem("top",JSON.stringify(count));
-}else if(bestsc.innerHTML!==String(0) && Number(bestsc.innerHTML)>Number(sc.innerHTML)){
-  localStorage.setItem("top",JSON.stringify(count));
-}
-// console.log(bestsc.innerHTML===String(0));
  }else if(b<c){
     message.innerHTML="Suspected number is lesser,Try again.";
  input.value=null; 
@@ -148,9 +143,16 @@ if(bestsc.innerHTML===String(0)){
     input.value=null;
 }
 count++;
+z++;
 sc.innerHTML=count;
+
 });
-bestsc.innerHTML=JSON.parse(localStorage.getItem("top"));
+if(localStorage.getItem("top")==null){
+  bestsc.innerHTML=0;
+}
+else if(localStorage.getItem("top")>0){
+  bestsc.innerHTML=localStorage.getItem("top");
+}
 
 
 
